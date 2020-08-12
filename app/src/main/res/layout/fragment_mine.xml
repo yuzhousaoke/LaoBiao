@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#171A23"
+    android:fitsSystemWindows="true">
+
+    <com.qzy.laobiao.widget.VpSwipeRefreshLayout
+        android:id="@+id/alivc_swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@mipmap/banner"
+                android:clickable="true">
+
+
+            </RelativeLayout>
+
+            <include layout="@layout/layout_mine_header_view" />
+
+            <View
+                android:id="@+id/view_split_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/alivc_common_line_1px"
+                android:layout_marginLeft="@dimen/alivc_common_margin_16"
+                android:layout_marginRight="@dimen/alivc_common_margin_16"
+                android:background="#4A4A4A" />
+
+            <LinearLayout
+                android:id="@+id/reycler_header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="你还没填写个人简介，点击添加..."
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/bg_4e71ff_r_22"
+                        android:text="柳州"
+                        android:textColor="#6A6D76"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/bg_4e71ff_r_22"
+                        android:gravity="center_vertical"
+                        android:text="  + 增加性别年龄、学校等标签  "
+                        android:textColor="#6A6D76"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+
+                        <TextView
+                            android:id="@+id/tv_my_video_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/alivc_common_white"
+                            android:textSize="@dimen/alivc_common_font_20" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 获赞"
+                            android:textColor="#6A6D76"
+                            android:textSize="@dimen/alivc_common_font_18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/alivc_common_white"
+                            android:textSize="@dimen/alivc_common_font_18" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 关注"
+                            android:textColor="#6A6D76"
+                            android:textSize="@dimen/alivc_common_font_18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/alivc_common_white"
+                            android:textSize="@dimen/alivc_common_font_18" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 粉丝"
+                            android:textColor="#6A6D76"
+                            android:textSize="@dimen/alivc_common_font_18" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/mine_tab"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:tabIndicatorColor="#FACE15"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="#878A93" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/mine_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </com.qzy.laobiao.widget.VpSwipeRefreshLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/alivc_common_bg_transparent"
+        android:clickable="true">
+
+        <FrameLayout
+            android:id="@+id/fl_setting"
+            android:layout_width="@dimen/alivc_common_size_icon_42"
+            android:layout_height="match_parent"
+            android:layout_gravity="right">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="@dimen/alivc_common_padding_8"
+                android:scaleType="center"
+                android:src="@mipmap/alivc_icon_mine_setting" />
+        </FrameLayout>
+    </FrameLayout>
+
+
+</FrameLayout>

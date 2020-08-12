@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/load_car_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/load_ing_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/load_car_img"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:scaleType="fitXY" />
+
+        <TextView
+            style="@style/tv_wrap_style"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="努力加载中..."
+            android:textColor="@color/text_color_light_gray"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/load_fail_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+
+        <TextView
+            style="@style/tv_wrap_style"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="请检查您的网络连接"
+            android:textColor="@color/text_color_light_gray"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            style="@style/tv_wrap_style"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="是否正确"
+            android:textColor="@color/text_color_light_gray"
+            android:textSize="@dimen/sp_12" />
+
+        <Button
+            android:id="@+id/again_btn"
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="重新加载"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+</LinearLayout>

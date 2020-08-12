@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">老表短视频</string>
+
+
+    <string name="main_tab_home" translatable="false">首页</string>
+    <string name="main_tab_mall">福利</string>
+    <string name="main_tab_find">发现</string>
+    <string name="main_tab_my">我的</string>
+
+
+    <string name="tv_cancel">取消</string>
+    <string name="tv_sure">确定</string>
+
+
+    <string name="all_read" translatable="false">全部已读</string>
+    <string name="add_address">添加新地址</string>
+
+    <string name="close" translatable="false">关闭</string>
+
+
+    <string name="call_number">0571-82557735</string>
+    <string name="call_number1" translatable="false">电话：0571-82557735</string>
+    <string name="call_wx">hzyounijia</string>
+    <string name="call_wx1" translatable="false">客服微信：hzyounijia</string>
+    <string name="call_email" translatable="false">a15700151557@163.com</string>
+    <string name="call_email1" translatable="false">邮箱：a15700151557@163.com</string>
+    <string name="free_neither_ubcle_nor_ubc" translatable="false">免费领卡</string>
+    <string name="oil_card_for">领取油卡</string>
+    <string name="buy_now">立即购买</string>
+    <string name="yuan">元</string>
+    <string name="integral">积分</string>
+    <string name="exchange_record">兑换记录</string>
+    <string name="unit_money">￥</string>
+    <string name="integration_rule">积分规则</string>
+    <string name="integral_shopping">积分商城</string>
+    <string name="discount">折</string>
+    <string name="sure_pay_text">确定支付</string>
+    <string name="stock_text">库存</string>
+    <string name="submit_order">提交订单</string>
+    <string name="save">保存</string>
+    <string name="app_new_name">加油之家</string>
+    <string name="title_activity_home_ac_html_web">HomeAcHtmlWebActivity</string>
+    <string name="title_activity_user_privacy">UserPrivacyActivity</string>
+    <string name="title_activity_user_agreement">UserAgreementActivity</string>
+
+    <!-- 点赞选中 -->
+    <string name="icon_like_fill">&#xe60d;</string>
+    <!--评论-->
+    <string name="icon_comment">&#xe621;</string>
+    <!-- 微博 -->
+    <string name="icon_weibo">&#xe620;</string>
+    <!-- 微信 -->
+    <string name="icon_wechat">&#xe61d;</string>
+    <!-- 微信朋友圈 -->
+    <string name="icon_friends">&#xe61c;</string>
+    <!-- QQ -->
+    <string name="icon_qq">&#xe61e;</string>
+    <!-- QQ空间 -->
+    <string name="icon_qq_space">&#xe61f;</string>
+    <!-- 更多 -->
+    <string name="icon_more">&#xe61b;</string>
+    <!-- 地理位置 -->
+    <string name="icon_location_fill">&#xe624;</string>
+</resources>

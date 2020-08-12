@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="-10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rl_header_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_little_user_center_avatar"
+            android:layout_width="@dimen/alivc_common_size_icon_90"
+            android:layout_height="@dimen/alivc_common_size_icon_90"
+            android:layout_marginLeft="@dimen/alivc_common_font_20"
+            app:riv_oval="true"
+            app:riv_border_width="20dp"
+            app:riv_border_color="#171A23"
+            android:src="@mipmap/wxbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp">
+
+            <Button
+                android:id="@+id/iv_mine_change_avatar"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:layout_marginLeft="@dimen/alivc_common_font_15"
+                android:layout_marginTop="@dimen/alivc_common_font_20"
+                android:background="@drawable/bg_4e71ff_r_22"
+                android:text="编写资料"
+                android:textSize="@dimen/alivc_common_font_18"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/tv_little_mine_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/alivc_common_font_20"
+                android:background="@drawable/bg_4e71ff_r_22"
+                android:text=" + 好友 "
+                android:textSize="@dimen/alivc_common_font_18"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/alivc_common_font_15"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/mine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="老表vZF3zS"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/alivc_common_font_10"
+            android:textSize="@dimen/alivc_common_font_25"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/mine_userid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1516275221"
+            android:layout_marginTop="@dimen/alivc_common_font_10"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</LinearLayout>

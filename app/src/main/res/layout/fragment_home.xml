@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alivc_common_bg_black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.view.HomeFragment"
+    android:fitsSystemWindows="true">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/home_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/home_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:xTabTextColor="@color/white"
+        app:xTabSelectedTextColor="#CCCCCC"
+        app:xTabIndicatorColor="#CCCCCC"
+        app:xTabTextSize="18sp"
+        app:xTabIndicatorWidth="40dp"
+        app:xTabTextBold="true"
+        android:layout_centerInParent="true" />
+
+</FrameLayout>
