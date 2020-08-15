@@ -71,6 +71,7 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
     private MineFragment mineFragment;
 
     private RxPermissions rxPermissions;
+    private int mTabTag;
 
     /**
      * 跳转编辑、录制选择弹窗
@@ -99,7 +100,9 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         mFragments = new ArrayList<>();
         homeFragment = new HomeFragment();
         mFragments.add(homeFragment);
-        hideOthersFragment(homeFragment, true);
+        fragmentTransaction.add(R.id.fragment1, homeFragment);
+        fragmentTransaction.commit();
+        showFragment(homeFragment);
 
         //设置fragment切换
         indicator.setFragmentIndicatorInterface(this);
@@ -127,43 +130,56 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         switch (id) {
             case 0:
 //                setTransactionToolbar(true);
-                hideOthersFragment(homeFragment, true);
+                if(homeFragment == null){
+                    homeFragment = new HomeFragment();
+                    mFragments.add(homeFragment);
+                    fragmentTransaction.add(R.id.fragment1, homeFragment);
+                    fragmentTransaction.commit();
+                }
+                showFragment(homeFragment);
+                mTabTag = 0;
                 break;
             case 1:
                 if (!BaseApplication.getInstance().isLogin()) {
                     UIManager.switcher(context, LoginActivity.class);
+                    return;
                 }
 //                setTransactionToolbar(true);
                 if (hongbaoFragment == null) {
                     hongbaoFragment = new HongbaoFragment();
                     mFragments.add(hongbaoFragment);
-                    hideOthersFragment(hongbaoFragment, true);
+                    fragmentTransaction.commit();
                 }
-                hideOthersFragment(hongbaoFragment, false);
+                showFragment(hongbaoFragment);
+                mTabTag = 1;
                 break;
             case 2:
                 if (!BaseApplication.getInstance().isLogin()) {
                     UIManager.switcher(context, LoginActivity.class);
+                    return;
                 }
 //                setTransactionToolbar(true);
                 if (messageFragment == null) {
                     messageFragment = new MessageFragment();
                     mFragments.add(messageFragment);
-                    hideOthersFragment(messageFragment, true);
+                    fragmentTransaction.commit();
                 }
-                hideOthersFragment(messageFragment, false);
+                showFragment(messageFragment);
+                mTabTag = 2;
                 break;
             case 3:
                 if (!BaseApplication.getInstance().isLogin()) {
                     UIManager.switcher(context, LoginActivity.class);
+                    return;
                 }
 //                setTransactionToolbar(true);
                 if (mineFragment == null) {
                     mineFragment = new MineFragment();
                     mFragments.add(mineFragment);
-                    hideOthersFragment(mineFragment, true);
+                    fragmentTransaction.commit();
                 }
-                hideOthersFragment(mineFragment, false);
+                showFragment(mineFragment);
+                mTabTag = 3;
                 break;
             case 4:
                 if (mMenuDialog == null) {
@@ -177,14 +193,10 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
      * 动态显示Fragment
      *
      * @param showFragment 要增加的fragment
-     * @param add          true：增加fragment；false：切换fragment
      */
-    private void hideOthersFragment(Fragment showFragment, boolean add) {
+    private void showFragment(Fragment showFragment) {
         //友盟
 //        MobclickAgent.onEvent(this, showFragment.getClass().getSimpleName(), "menu");
-        fragmentTransaction = fragmentManager.beginTransaction();
-        if (add)
-            fragmentTransaction.add(R.id.fragment1, showFragment);
         for (Fragment fragment : mFragments) {
             if (showFragment.equals(fragment)) {
                 fragmentTransaction.show(fragment);
@@ -192,7 +204,6 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                 fragmentTransaction.hide(fragment);
             }
         }
-        fragmentTransaction.commit();
     }
 
     private void setTransactionToolbar(boolean flag) {
@@ -380,5 +391,13 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
     @Override
     public void onGetUploadVideo(VideoIdModel videoIdModel) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (indicator != null) {
+            indicator.setIndicator(mTabTag);
+        }
     }
 }

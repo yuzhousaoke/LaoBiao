@@ -11,6 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.qzy.laobiao.R;
 import com.qzy.laobiao.common.base.BasePresenterFragment;
+import com.qzy.laobiao.common.utils.LogUtils;
 import com.qzy.laobiao.common.utils.OnVideoControllerListener;
 import com.qzy.laobiao.home.adapter.VideoAdapter;
 import com.qzy.laobiao.videoCom.CommentDialog;
@@ -78,12 +79,13 @@ public class FriendsVideoFragment extends BasePresenterFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (videoView != null && !videoView.isPlaying()) {
-            videoView.start();
-        }
-        if (ivPlay != null) {
-            ivPlay.setVisibility(View.GONE);
-        }
+        LogUtils.i(FriendsVideoFragment.class, "FriendsVideoFragment onResume");
+//        if (videoView != null && !videoView.isPlaying()) {
+//            videoView.start();
+//        }
+//        if (ivPlay != null) {
+//            ivPlay.setVisibility(View.GONE);
+//        }
 
         //返回时，推荐页面可见，则继续播放视频
 //        if (MainActivity.curMainPage == 0 && MainFragment.curPage == 1) {
@@ -94,6 +96,26 @@ public class FriendsVideoFragment extends BasePresenterFragment {
     @Override
     public void onPause() {
         super.onPause();
+//        LogUtils.i(FriendsVideoFragment.class, "FriendsVideoFragment onPause");
+//        if (videoView != null && videoView.isPlaying()) {
+//            videoView.pause();
+//        }
+//        if (ivPlay != null) {
+//            ivPlay.setVisibility(View.VISIBLE);
+//        }
+    }
+
+    public void show() {
+        if (videoView != null && !videoView.isPlaying()) {
+            videoView.start();
+        }
+        if (ivPlay != null) {
+            ivPlay.setVisibility(View.GONE);
+        }
+    }
+
+    public void hide() {
+        LogUtils.i(FriendsVideoFragment.class, "FriendsVideoFragment onPause");
         if (videoView != null && videoView.isPlaying()) {
             videoView.pause();
         }

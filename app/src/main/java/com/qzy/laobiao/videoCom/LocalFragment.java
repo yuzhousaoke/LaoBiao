@@ -10,6 +10,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.qzy.laobiao.R;
 import com.qzy.laobiao.common.base.BasePresenterFragment;
+import com.qzy.laobiao.common.utils.LogUtils;
 import com.qzy.laobiao.common.utils.OnVideoControllerListener;
 import com.qzy.laobiao.home.adapter.VideoAdapter;
 import com.qzy.laobiao.home.view.PlayListActivity;
@@ -74,12 +75,13 @@ public class LocalFragment extends BasePresenterFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (videoView != null && !videoView.isPlaying()) {
-            videoView.start();
-        }
-        if (ivPlay != null) {
-            ivPlay.setVisibility(View.GONE);
-        }
+//        LogUtils.i(LocalFragment.class, "LocalFragment onResume");
+//        if (videoView != null && !videoView.isPlaying()) {
+//            videoView.start();
+//        }
+//        if (ivPlay != null) {
+//            ivPlay.setVisibility(View.GONE);
+//        }
         //返回时，推荐页面可见，则继续播放视频
 //        if (MainActivity.curMainPage == 0 && MainFragment.curPage == 1) {
 //            videoView.start();
@@ -89,6 +91,25 @@ public class LocalFragment extends BasePresenterFragment {
     @Override
     public void onPause() {
         super.onPause();
+        LogUtils.i(LocalFragment.class, "LocalFragment onPause");
+//        if (videoView != null && videoView.isPlaying()) {
+//            videoView.pause();
+//        }
+//        if (ivPlay != null) {
+//            ivPlay.setVisibility(View.VISIBLE);
+//        }
+    }
+
+    public void show() {
+        if (videoView != null && !videoView.isPlaying()) {
+            videoView.start();
+        }
+        if (ivPlay != null) {
+            ivPlay.setVisibility(View.GONE);
+        }
+    }
+
+    public void hide() {
         if (videoView != null && videoView.isPlaying()) {
             videoView.pause();
         }
@@ -96,6 +117,8 @@ public class LocalFragment extends BasePresenterFragment {
             ivPlay.setVisibility(View.VISIBLE);
         }
     }
+
+
 
     @Override
     public void onStop() {

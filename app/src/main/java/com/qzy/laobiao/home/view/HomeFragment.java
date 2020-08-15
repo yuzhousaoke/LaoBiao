@@ -35,6 +35,7 @@ public class HomeFragment extends BasePresenterFragment {
     private LocalFragment localFragment;
     private FriendsVideoFragment friendsVideoFragment;
     private MallFragment mallShopsFragment;
+    private int mPosition = 0;
 
 
     @Override
@@ -70,12 +71,13 @@ public class HomeFragment extends BasePresenterFragment {
         home_vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                mPosition = position;
                 if(position == 0){
-                    localFragment.onResume();
-                    friendsVideoFragment.onPause();
+                    localFragment.show();
+                    friendsVideoFragment.hide();
                 }else if(position == 1){
-                    friendsVideoFragment.onResume();
-                    localFragment.onPause();
+                    friendsVideoFragment.show();
+                    localFragment.hide();
                 }
             }
 
@@ -92,5 +94,33 @@ public class HomeFragment extends BasePresenterFragment {
 
         //设置tablayout和viewpager可联动
         home_tab.setupWithViewPager(home_vp);
+        localFragment.show();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mPosition == 0) {
+            if (localFragment != null) {
+                localFragment.show();
+            }
+            if (friendsVideoFragment != null) {
+                friendsVideoFragment.hide();
+            }
+        } else if (mPosition == 1) {
+            if (localFragment != null) {
+                localFragment.hide();
+            }
+            if (friendsVideoFragment != null) {
+                friendsVideoFragment.show();
+            }
+        }
+    }
+
+    //    @Override
+//    public void onPause() {
+//        super.onPause();
+//        localFragment.onPause();
+//        friendsVideoFragment.onPause();
+//    }
 }
