@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.androidkun.xtablayout.XTabLayout;
 import com.gyf.immersionbar.ImmersionBar;
+import com.qzy.laobiao.MainActivity;
 import com.qzy.laobiao.R;
 import com.qzy.laobiao.common.base.BasePresenterFragment;
 import com.qzy.laobiao.mine.adapter.TabPagerAdapter;
@@ -71,6 +72,11 @@ public class HomeFragment extends BasePresenterFragment {
         home_vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
                 mPosition = position;
                 if(position == 0){
                     localFragment.show();
@@ -79,11 +85,6 @@ public class HomeFragment extends BasePresenterFragment {
                     friendsVideoFragment.show();
                     localFragment.hide();
                 }
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
             }
 
             @Override
@@ -100,6 +101,9 @@ public class HomeFragment extends BasePresenterFragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (context != null && ((MainActivity) context).mTabTag != 0) {
+            return;
+        }
         if (mPosition == 0) {
             if (localFragment != null) {
                 localFragment.show();

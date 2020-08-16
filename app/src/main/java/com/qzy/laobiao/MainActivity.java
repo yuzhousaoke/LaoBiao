@@ -70,7 +70,7 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
     private MineFragment mineFragment;
 
     private RxPermissions rxPermissions;
-    private int mTabTag;
+    public int mTabTag;
 
     /**
      * 跳转编辑、录制选择弹窗
@@ -118,6 +118,9 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
 
     @Override
     public void goLogin(int tag) {
+        for (Fragment fragment : mFragments) {
+            fragment.onPause();
+        }
         try {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, LoginActivity.class);
@@ -137,11 +140,11 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         switch (id) {
             case 0:
 //                setTransactionToolbar(true);
+                mTabTag = 0;
                 if(homeFragment == null){
                     homeFragment = new HomeFragment();
                 }
                 showFragment(homeFragment);
-                mTabTag = 0;
                 break;
             case 1:
                 if (!BaseApplication.getInstance().isLogin()) {
@@ -149,11 +152,11 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                     return;
                 }
 //                setTransactionToolbar(true);
+                mTabTag = 1;
                 if (hongbaoFragment == null) {
                     hongbaoFragment = new HongbaoFragment();
                 }
                 showFragment(hongbaoFragment);
-                mTabTag = 1;
                 break;
             case 2:
                 if (!BaseApplication.getInstance().isLogin()) {
@@ -161,11 +164,11 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                     return;
                 }
 //                setTransactionToolbar(true);
+                mTabTag = 2;
                 if (messageFragment == null) {
                     messageFragment = new MessageFragment();
                 }
                 showFragment(messageFragment);
-                mTabTag = 2;
                 break;
             case 3:
                 if (!BaseApplication.getInstance().isLogin()) {
@@ -173,11 +176,11 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                     return;
                 }
 //                setTransactionToolbar(true);
+                mTabTag = 3;
                 if (mineFragment == null) {
                     mineFragment = new MineFragment();
                 }
                 showFragment(mineFragment);
-                mTabTag = 3;
                 break;
             case 4:
                 if (mMenuDialog == null) {
@@ -309,10 +312,38 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                     if (tag != -1) {
                         mTabTag = tag;
                     }
+                    switch (mTabTag) {
+                        case 0:
+                            if(homeFragment == null){
+                                homeFragment = new HomeFragment();
+                            }
+                            showFragment(homeFragment);
+                            mTabTag = 0;
+                            break;
+                        case 1:
+                            if (hongbaoFragment == null) {
+                                hongbaoFragment = new HongbaoFragment();
+                            }
+                            showFragment(hongbaoFragment);
+                            mTabTag = 1;
+                            break;
+                        case 2:
+                            if (messageFragment == null) {
+                                messageFragment = new MessageFragment();
+                            }
+                            showFragment(messageFragment);
+                            mTabTag = 2;
+                            break;
+                        case 3:
+                            if (mineFragment == null) {
+                                mineFragment = new MineFragment();
+                            }
+                            showFragment(mineFragment);
+                            mTabTag = 3;
+                            break;
+                    }
                 }
             }
-
-
         }
     }
 
@@ -414,36 +445,6 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         super.onResume();
         if (indicator != null) {
             indicator.setIndicator(mTabTag);
-        }
-        switch (mTabTag) {
-            case 0:
-                if(homeFragment == null){
-                    homeFragment = new HomeFragment();
-                }
-                showFragment(homeFragment);
-                mTabTag = 0;
-                break;
-            case 1:
-                if (hongbaoFragment == null) {
-                    hongbaoFragment = new HongbaoFragment();
-                }
-                showFragment(hongbaoFragment);
-                mTabTag = 1;
-                break;
-            case 2:
-                if (messageFragment == null) {
-                    messageFragment = new MessageFragment();
-                }
-                showFragment(messageFragment);
-                mTabTag = 2;
-                break;
-            case 3:
-                if (mineFragment == null) {
-                    mineFragment = new MineFragment();
-                }
-                showFragment(mineFragment);
-                mTabTag = 3;
-                break;
         }
     }
 }
