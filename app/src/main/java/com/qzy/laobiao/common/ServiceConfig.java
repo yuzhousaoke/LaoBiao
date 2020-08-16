@@ -19,7 +19,10 @@ public class ServiceConfig {
     private static boolean RELEASE_DEBUG = false;
 
     //    private static final String RELEASE_ROOT_URL = "http://wap.gxyrsoft.com";//正式环境根路径 http://47.111.182.88:8084
-    private static final String RELEASE_ROOT_URL = "http://192.168.0.116:8080";//正式环境根路径 http://47.111.182.88:8084
+
+//    private static final String RELEASE_ROOT_URL = "http://192.168.0.116:8080";//正式环境根路径 http://47.111.182.88:8084
+    private static final String RELEASE_ROOT_URL = "http://39.108.150.225:8080";//正式环境根路径 http://47.111.182.88:8084
+
     //private static final String RELEASE_ROOT_URL = "http://192.168.3.11:84";//本地环境根路径
     private static final String TEST_ROOT_URL = "http://192.168.0.116:8080";//测试环境根路径
 
