@@ -96,7 +96,7 @@ public class FriendsVideoFragment extends BasePresenterFragment {
     @Override
     public void onPause() {
         super.onPause();
-//        LogUtils.i(FriendsVideoFragment.class, "FriendsVideoFragment onPause");
+        LogUtils.i(FriendsVideoFragment.class, "FriendsVideoFragment onPause");
 //        if (videoView != null && videoView.isPlaying()) {
 //            videoView.pause();
 //        }

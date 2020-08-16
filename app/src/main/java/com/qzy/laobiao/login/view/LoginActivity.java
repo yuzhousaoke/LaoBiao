@@ -2,6 +2,7 @@ package com.qzy.laobiao.login.view;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -75,6 +76,7 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter> impleme
 
 
     private final int READ_CODE = 10;
+    private int mTag = -1;
 
     @Override
     protected int getLayoutRes() {
@@ -168,6 +170,9 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter> impleme
                 }
             }
         });
+        if (getIntent() != null) {
+            mTag = getIntent().getIntExtra("tag", -1);
+        }
     }
 
     private void initAliyunPlayerView() {
@@ -246,8 +251,11 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter> impleme
     public void onGetLoginData(LoginModel model) {
         BaseApplication.getInstance().setUserId(model.getBody());
 //        mPresenter.getUserInfo(context,2);
-        UIManager.switcher(context, MainActivity.class);
+//        UIManager.switcher(context, MainActivity.class);
         ToastManager.showToast(context, "登陆成功");
+        Intent data = new Intent();
+        data.putExtra("tag", mTag);
+        setResult(Activity.RESULT_OK, data);
         finish();
     }
 

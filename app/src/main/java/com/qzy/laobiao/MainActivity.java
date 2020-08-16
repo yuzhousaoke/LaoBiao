@@ -28,7 +28,6 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.qzy.laobiao.common.base.BaseApplication;
 import com.qzy.laobiao.common.base.BasePresenterFragActivity;
 import com.qzy.laobiao.common.manager.ToastManager;
-import com.qzy.laobiao.common.manager.UIManager;
 import com.qzy.laobiao.home.impl.HomeView;
 import com.qzy.laobiao.home.model.VideoIdModel;
 import com.qzy.laobiao.home.presenter.HomePresenter;
@@ -99,9 +98,6 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         fragmentTransaction = fragmentManager.beginTransaction();
         mFragments = new ArrayList<>();
         homeFragment = new HomeFragment();
-        mFragments.add(homeFragment);
-        fragmentTransaction.add(R.id.fragment1, homeFragment);
-        fragmentTransaction.commit();
         showFragment(homeFragment);
 
         //设置fragment切换
@@ -121,9 +117,20 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
 
 
     @Override
-    public void goLogin() {
-        UIManager.switcher(context, LoginActivity.class);
+    public void goLogin(int tag) {
+        try {
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, LoginActivity.class);
+            intent.putExtra("tag", tag);
+            startActivityForResult(intent, 0);
+            //设置切换动画，从右边进入，左边退出
+            overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     @Override
     public void onIndicate(View v, int id) {
@@ -132,51 +139,42 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
 //                setTransactionToolbar(true);
                 if(homeFragment == null){
                     homeFragment = new HomeFragment();
-                    mFragments.add(homeFragment);
-                    fragmentTransaction.add(R.id.fragment1, homeFragment);
-                    fragmentTransaction.commit();
                 }
                 showFragment(homeFragment);
                 mTabTag = 0;
                 break;
             case 1:
                 if (!BaseApplication.getInstance().isLogin()) {
-                    UIManager.switcher(context, LoginActivity.class);
+                    goLogin(1);
                     return;
                 }
 //                setTransactionToolbar(true);
                 if (hongbaoFragment == null) {
                     hongbaoFragment = new HongbaoFragment();
-                    mFragments.add(hongbaoFragment);
-                    fragmentTransaction.commit();
                 }
                 showFragment(hongbaoFragment);
                 mTabTag = 1;
                 break;
             case 2:
                 if (!BaseApplication.getInstance().isLogin()) {
-                    UIManager.switcher(context, LoginActivity.class);
+                    goLogin(2);
                     return;
                 }
 //                setTransactionToolbar(true);
                 if (messageFragment == null) {
                     messageFragment = new MessageFragment();
-                    mFragments.add(messageFragment);
-                    fragmentTransaction.commit();
                 }
                 showFragment(messageFragment);
                 mTabTag = 2;
                 break;
             case 3:
                 if (!BaseApplication.getInstance().isLogin()) {
-                    UIManager.switcher(context, LoginActivity.class);
+                    goLogin(3);
                     return;
                 }
 //                setTransactionToolbar(true);
                 if (mineFragment == null) {
                     mineFragment = new MineFragment();
-                    mFragments.add(mineFragment);
-                    fragmentTransaction.commit();
                 }
                 showFragment(mineFragment);
                 mTabTag = 3;
@@ -195,15 +193,25 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
      * @param showFragment 要增加的fragment
      */
     private void showFragment(Fragment showFragment) {
-        //友盟
-//        MobclickAgent.onEvent(this, showFragment.getClass().getSimpleName(), "menu");
+        if(showFragment == null){
+            return;
+        }
+        fragmentTransaction = fragmentManager.beginTransaction();
+        if (!mFragments.contains(showFragment)) {
+            mFragments.add(showFragment);
+            fragmentTransaction.add(R.id.fragment1, showFragment);
+        }
         for (Fragment fragment : mFragments) {
-            if (showFragment.equals(fragment)) {
-                fragmentTransaction.show(fragment);
-            } else {
+            if (!showFragment.equals(fragment)) {
                 fragmentTransaction.hide(fragment);
+                fragment.onPause();
             }
         }
+        fragmentTransaction.show(showFragment);
+        showFragment.onResume();
+        fragmentTransaction.commit();
+        //友盟
+//        MobclickAgent.onEvent(this, showFragment.getClass().getSimpleName(), "menu");
     }
 
     private void setTransactionToolbar(boolean flag) {
@@ -294,8 +302,16 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
                     }
                 }
                 cursor.close();
+                Toast.makeText(this, "选取了张照片", Toast.LENGTH_SHORT).show();
+            } else if (0 == requestCode) {
+                if (data != null) {
+                    int tag = data.getIntExtra("tag", -1);
+                    if (tag != -1) {
+                        mTabTag = tag;
+                    }
+                }
             }
-            Toast.makeText(this, "选取了张照片", Toast.LENGTH_SHORT).show();
+
 
         }
     }
@@ -398,6 +414,36 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         super.onResume();
         if (indicator != null) {
             indicator.setIndicator(mTabTag);
+        }
+        switch (mTabTag) {
+            case 0:
+                if(homeFragment == null){
+                    homeFragment = new HomeFragment();
+                }
+                showFragment(homeFragment);
+                mTabTag = 0;
+                break;
+            case 1:
+                if (hongbaoFragment == null) {
+                    hongbaoFragment = new HongbaoFragment();
+                }
+                showFragment(hongbaoFragment);
+                mTabTag = 1;
+                break;
+            case 2:
+                if (messageFragment == null) {
+                    messageFragment = new MessageFragment();
+                }
+                showFragment(messageFragment);
+                mTabTag = 2;
+                break;
+            case 3:
+                if (mineFragment == null) {
+                    mineFragment = new MineFragment();
+                }
+                showFragment(mineFragment);
+                mTabTag = 3;
+                break;
         }
     }
 }

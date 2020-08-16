@@ -117,10 +117,10 @@ public class HomeFragment extends BasePresenterFragment {
         }
     }
 
-    //    @Override
-//    public void onPause() {
-//        super.onPause();
-//        localFragment.onPause();
-//        friendsVideoFragment.onPause();
-//    }
+        @Override
+    public void onPause() {
+        super.onPause();
+        localFragment.hide();
+        friendsVideoFragment.hide();
+    }
 }

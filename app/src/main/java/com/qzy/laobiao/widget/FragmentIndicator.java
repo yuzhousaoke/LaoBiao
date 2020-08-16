@@ -9,11 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-
-
 import com.qzy.laobiao.R;
-import com.qzy.laobiao.common.manager.ToastManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,7 +72,7 @@ public class FragmentIndicator extends LinearLayout {
     public interface FragmentIndicatorInterface {
         boolean hasLogin();
 
-        void goLogin();
+        void goLogin(int tag);
     }
 
     public void setFragmentIndicatorInterface(
@@ -138,7 +134,7 @@ public class FragmentIndicator extends LinearLayout {
             case R.id.bottomLy2:
                 if (mCurIndicator != 1) {
                     if (!indicatorInterface.hasLogin()) {
-                        indicatorInterface.goLogin(); //未登录跳转登录
+                        indicatorInterface.goLogin(1); //未登录跳转登录
                     }else {
                         mOnIndicateListener.onIndicate(view, 1);
                         setIndicator(1);
@@ -148,7 +144,7 @@ public class FragmentIndicator extends LinearLayout {
             case R.id.bottomLy3:
                 if (mCurIndicator != 2) {
                     if (!indicatorInterface.hasLogin()) {
-                        indicatorInterface.goLogin(); //未登录跳转登录
+                        indicatorInterface.goLogin(2); //未登录跳转登录
                     }else {
                         mOnIndicateListener.onIndicate(view, 2);
                         setIndicator(2);
@@ -158,7 +154,7 @@ public class FragmentIndicator extends LinearLayout {
             case R.id.bottomLy4:
                 if (mCurIndicator != 3) {
                     if (!indicatorInterface.hasLogin()) {
-                        indicatorInterface.goLogin(); //未登录跳转登录
+                        indicatorInterface.goLogin(3); //未登录跳转登录
                     } else {
                         mOnIndicateListener.onIndicate(view, 3);
                         setIndicator(3);
