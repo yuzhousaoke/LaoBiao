@@ -84,6 +84,9 @@ public class HomeFragment extends BasePresenterFragment {
                 }else if(position == 1){
                     friendsVideoFragment.show();
                     localFragment.hide();
+                } else if (position == 2) {
+                    localFragment.hide();
+                    friendsVideoFragment.hide();
                 }
             }
 
