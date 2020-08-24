@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <!--    private int mall_icon;//店铺头像-->
+    <!--    private int mall_lingdai;//企业认证-->
+    <!--    private int mall_guanzhu;//关注-->
+    <!--    private int mall_xingji;//星级-->
+    <!--    private String mall_name;//店名-->
+    <!--    private String mall_ppld;//品牌老店-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/mall_icon"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:src="@drawable/mall_icon"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/mall_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="店名"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/alivc_common_font_16" />
+
+                <ImageView
+                    android:id="@+id/mall_qyrz"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/qyfw" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/xing2" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/xing2" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/xing2" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/xing1" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/xing0" />
+
+                <TextView
+                    android:id="@+id/mall_ppld"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:text="品牌老店"
+                    android:textSize="@dimen/alivc_common_font_16" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/mall_gz"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_mall_guanzhu"
+            android:focusable="false"
+            android:text="关注"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mall_icon" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mall_icon" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mall_icon" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mall_icon" />
+
+    </LinearLayout>
+
+</LinearLayout>

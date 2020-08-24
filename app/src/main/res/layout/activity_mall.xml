@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".home.view.MallActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/register_sjh_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_back_g" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我要开店"
+            android:textColor="@color/_4e71ff"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/mall_caidan"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/caidan" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
