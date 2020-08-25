@@ -34,8 +34,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".home.view.MallActivity"></activity>
-        <activity android:name=".home.view.PlayListActivity" />
         <!--
                     配置APP的连接环境
                    DEBUG   （本地调试环境）
@@ -80,6 +78,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".home.view.MallActivity" />
+        <activity android:name=".home.view.ConfirmOrderActivity" />
+        <activity android:name=".home.view.PlayListActivity" />
+
     </application>
 
 </manifest>

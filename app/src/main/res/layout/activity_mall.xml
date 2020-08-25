@@ -13,7 +13,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/register_sjh_back"
+            android:id="@+id/goods_back"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentLeft="true"
@@ -191,14 +191,22 @@
         android:id="@+id/mall_refreshlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp">
+        android:background="@color/ll_color_check"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mall_recyclerview"
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/mall_recyclerview"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent" />-->
+
+        <!--numColumns设置每行显示多少个-->
+        <GridView
+            android:id="@+id/mall_goods_gv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:numColumns="2" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
