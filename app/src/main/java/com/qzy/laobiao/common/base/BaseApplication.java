@@ -19,10 +19,12 @@ import com.qzy.laobiao.login.view.LoginActivity;
 import java.util.LinkedList;
 import java.util.List;
 
+import androidx.multidex.MultiDexApplication;
+
 /**
  * artifact  BaseApplication
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {// 低版本安卓手机适配MultiDexApplication
 
     // 创建application对象
     private static BaseApplication mInstance;

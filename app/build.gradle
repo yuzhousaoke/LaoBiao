@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.qzy.laobiao"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,7 @@ android {
 
         renderscriptTargetApi 23//圆角图片转换
         renderscriptSupportModeEnabled true//圆角图片转换
+        multiDexEnabled true//低版本安卓手机适配
     }
 
     buildTypes {
@@ -112,7 +113,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata:2.0.0'
-    //加载动画
+    //加载动画，最低版本安卓16
     implementation 'com.airbnb.android:lottie:2.8.0'
 
     //权限库
@@ -120,4 +121,8 @@ dependencies {
 
     //阿里云上传SDK
     implementation 'com.aliyun.video.android:upload:1.6.0'
+
+    //低版本安卓手机适配
+    implementation 'com.android.support:multidex:1.0.3'
+
 }
