@@ -23,6 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/*门店页面*/
 public class MallActivity extends BasePresenterFragActivity {
 
     @BindView(R.id.mall_goods_gv)

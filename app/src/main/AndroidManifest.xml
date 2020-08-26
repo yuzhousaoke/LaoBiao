@@ -33,7 +33,9 @@
         android:maxAspectRatio="2.4"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning"
+        tools:targetApi="o">
         <!--
                     配置APP的连接环境
                    DEBUG   （本地调试环境）
@@ -64,23 +66,35 @@
             android:value="portrait|landscape" />
 
         <activity
-            android:name=".login.view.LoginActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".splash.SplashActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".home.view.MallActivity" />
-        <activity android:name=".home.view.ConfirmOrderActivity" />
-        <activity android:name=".home.view.PlayListActivity" />
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".login.view.LoginActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.view.MallActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".home.view.ConfirmOrderActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".home.view.PlayListActivity"
+            android:launchMode="singleTask" />
 
     </application>
 

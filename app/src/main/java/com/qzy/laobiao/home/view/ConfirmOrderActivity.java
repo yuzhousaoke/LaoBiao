@@ -9,10 +9,12 @@ import com.qzy.laobiao.common.base.BasePresenterFragActivity;
 
 import butterknife.BindView;
 
+/*订单页面*/
 public class ConfirmOrderActivity extends BasePresenterFragActivity {
 
     @BindView(R.id.order_back)
     ImageView orderBack;
+
     @Override
     protected BasePresenter setPresenter() {
         return null;

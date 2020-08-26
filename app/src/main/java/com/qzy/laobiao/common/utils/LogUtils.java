@@ -13,7 +13,7 @@ public class LogUtils {
     public static boolean IS_DEBUG;
 
 
-    private static final String TAG = "ynjApp";
+    private static final String TAG = "老表短视频";
 
     // 下面四个是默认tag的函数
     public static void i(String msg) {
