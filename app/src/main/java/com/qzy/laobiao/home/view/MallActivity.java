@@ -1,28 +1,24 @@
 package com.qzy.laobiao.home.view;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.qzy.laobiao.R;
-import com.qzy.laobiao.common.base.BaseActivity;
 import com.qzy.laobiao.common.base.BasePresenter;
 import com.qzy.laobiao.common.base.BasePresenterFragActivity;
-import com.qzy.laobiao.common.manager.UIManager;
 import com.qzy.laobiao.mall.adapter.MallGoodsAdapter;
 import com.qzy.laobiao.mall.model.MallGoodsModel;
+import com.qzy.laobiao.mall.view.GoodsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /*门店页面*/
 public class MallActivity extends BasePresenterFragActivity {
@@ -75,7 +71,7 @@ public class MallActivity extends BasePresenterFragActivity {
                     goods_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(MallActivity.this, ConfirmOrderActivity.class);
+                            Intent intent = new Intent(MallActivity.this, GoodsActivity.class);
                             startActivity(intent);
                         }
                     });

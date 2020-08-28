@@ -90,7 +90,7 @@
             android:name=".home.view.MallActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".home.view.ConfirmOrderActivity"
+            android:name=".mall.view.GoodsActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".home.view.PlayListActivity"

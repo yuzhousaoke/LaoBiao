@@ -1,4 +1,4 @@
-package com.qzy.laobiao.home.view;
+package com.qzy.laobiao.mall.view;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -10,9 +10,9 @@ import com.qzy.laobiao.common.base.BasePresenterFragActivity;
 import butterknife.BindView;
 
 /*订单页面*/
-public class ConfirmOrderActivity extends BasePresenterFragActivity {
+public class GoodsActivity extends BasePresenterFragActivity {
 
-    @BindView(R.id.order_back)
+    @BindView(R.id.goods_back)
     ImageView orderBack;
 
     @Override
@@ -22,7 +22,7 @@ public class ConfirmOrderActivity extends BasePresenterFragActivity {
 
     @Override
     protected int getLayoutRes() {
-        return R.layout.activity_confirm_order;
+        return R.layout.activity_goods;
     }
 
     @Override
