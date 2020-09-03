@@ -27,7 +27,7 @@ public class MallActivity extends BasePresenterFragActivity {
     SwipeRefreshLayout mall_srl;
     @BindView(R.id.mall_goods_gv)
     GridView goods_gv;
-    @BindView(R.id.goods_back)
+    @BindView(R.id.mall_back)
     ImageView goodsBack;
 
     private int i = 1;

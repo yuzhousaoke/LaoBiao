@@ -212,7 +212,7 @@ public class FriendsVideoFragment extends BasePresenterFragment {
         //切换播放器位置
         dettachParentView(rootView);
 
-        autoPlayVideo(curPlayPos, ivCover);
+//        autoPlayVideo(curPlayPos, ivCover);
     }
 
     /**

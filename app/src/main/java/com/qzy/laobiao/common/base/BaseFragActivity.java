@@ -56,7 +56,7 @@ public abstract class BaseFragActivity extends BaseInputFragActivity {
 
         //沉浸式标题栏
         if (enabledImmersionBar()) {
-//            initImmersionBar();
+            initImmersionBar();
         }
 
         //eventBus
@@ -111,23 +111,23 @@ public abstract class BaseFragActivity extends BaseInputFragActivity {
         return true;
     }
 
-//    private void initImmersionBar() {
-//        //在BaseActivity里初始化
-//        mImmersionBar = ImmersionBar.with(this);
-//        mImmersionBar.statusBarDarkFont(true, 0.2f)//设置状态栏图片为深色，(如果android 6.0以下就是半透明)
-//                .fitsSystemWindows(true)//设置这个是为了防止布局和顶部的状态栏重叠
-////                .statusBarColor(R.color.home_un_check)//自定义颜色
-//                .statusBarColor(R.color.white)//自定义颜色
-//                .supportActionBar(false) //不支持ActionBar使用
-//                .init();
-//    }
+    private void initImmersionBar() {
+        //在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarDarkFont(true, 0.2f)//设置状态栏图片为深色，(如果android 6.0以下就是半透明)
+                .fitsSystemWindows(true)//设置这个是为了防止布局和顶部的状态栏重叠
+//                .statusBarColor(R.color.home_un_check)//自定义颜色
+                .statusBarColor(R.color.white)//自定义颜色
+                .supportActionBar(false) //不支持ActionBar使用
+                .init();
+    }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        if (mImmersionBar != null)
-//            mImmersionBar.destroy();
+        if (mImmersionBar != null)
+            mImmersionBar.destroy();
 
 //        if (enableEventBus())
 //            EventBus.getDefault().unregister(this);

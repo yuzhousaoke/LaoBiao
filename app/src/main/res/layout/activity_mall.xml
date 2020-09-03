@@ -13,7 +13,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/goods_back"
+            android:id="@+id/mall_back"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentLeft="true"
