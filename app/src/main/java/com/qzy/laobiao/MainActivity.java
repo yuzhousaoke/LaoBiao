@@ -107,7 +107,7 @@ public class MainActivity extends BasePresenterFragActivity<HomePresenter> imple
         //获取存储卡权限
         setRxPermissions();
         rxPermissions = new RxPermissions(context);
-        ToastManager.showToast(getApplicationContext(),"test");
+        ToastManager.showToast(getApplicationContext(),"sec test");
     }
 
 
